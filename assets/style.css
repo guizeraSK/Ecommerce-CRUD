@@ -28,6 +28,7 @@
 body{
     height: 100vh;
     background: var(--body-color);
+    transition: var(--tran-05);
 }
 
 body.dark{
@@ -44,29 +45,6 @@ body.dark header .toggle{
     color: #707070;
 }
 
-body.dark .menu-bar .mode i.sun{
-    opacity: 100;
-}
-
-body.dark .menu-bar .mode i.moon{
-    opacity: 0;
-}
-
-/* ===== Resuable CSS ===== */
-
-.sidebar .text{
-    font-size: 16px;
-    font-weight: 500;
-    color: var(--text-color);
-}
-
-.sidebar .image{
-    min-width: 60px;
-    display: flex;
-    align-items: center;
-}
-
-
 /* ===== sidebar ===== */
 
 .sidebar{
@@ -76,6 +54,35 @@ body.dark .menu-bar .mode i.moon{
     height: 100%;
     width: 250px;
     background: var(--sidebar-color);
+    transition: var(--tran-04);
+}
+
+.sidebar.close{
+    width: 58px;
+}
+
+/* ===== Resuable CSS ===== */
+
+.sidebar .text{
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-color);
+    transition: var(--tran-04);
+    white-space: nowrap;
+    opacity: 1;
+}
+
+.sidebar.close .text{
+    opacity: 0;
+}
+
+
+
+.sidebar .image{
+    min-width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .sidebar li{
@@ -182,6 +189,8 @@ header .image-text .header-text{
 
 .menu-bar .mode{
     background: var(--primary-color-light);
+    border-radius: 6px;
+    position: relative;
 }
 
 .menu-bar .mode .moon-sun{
@@ -199,13 +208,23 @@ header .image-text .header-text{
     opacity: 0;
 }
 
+body.dark .menu-bar .mode i.sun{
+    opacity: 1;
+}
+
+body.dark .menu-bar .mode i.moon{
+    opacity: 0;
+}
+
 .menu-bar .mode .toggle-switch{
     display: flex;
     height: 100%;
+    right: 0px;
     min-width: 60px;
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    position: absolute;
 }
 
 .toggle-switch .switch{
